@@ -1,0 +1,16 @@
+<?
+session_start();
+ob_start();
+
+header("Content-type: application/octet-stream");
+
+header("Content-Disposition: attachment; filename=exportfiles/paidunpaid_".str_replace(" ","_",$_SESSION['SESS_USER_NAME']).".csv");
+
+//readfile("http://192.168.200.103/AGING/modules/Program/INVAGING.CSV");
+readfile("exportfiles/paidunpaid_".str_replace(" ","_",$_SESSION['SESS_USER_NAME']).".csv");
+
+header("Pragma: no-cache");
+
+header("Expires: 0");
+ob_flush();
+?>
